@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Typed from 'react-typed'
 
 function Hero() {
@@ -16,7 +17,9 @@ function Hero() {
                         strings={['TWEETS', 'TEXTS', 'RESUME']} typeSpeed={120} backSpeed={140} loop />
                 </div>
                 <p className='md:text-2xl text-xl font-bold text-gray-500'>Monitor your networks, increase your bids, lorem ipsum etc</p>
-                <button className='bg-[#00df9a] text-black w-[200px] rounded-md font-medium my-6 mx-auto py-3'>Get Started</button>
+                <Link to='/login'>
+                    <button className='bg-[#00df9a] text-black w-[200px] rounded-md font-medium my-6 mx-auto py-3'>Get Started</button>
+                </Link>
             </div>
         </div>
     )
