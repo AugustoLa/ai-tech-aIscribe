@@ -1,7 +1,7 @@
-import HolderInfos from "../components/HolderInfos";
-import Hero from "../components/Hero";
+import HolderInfos from "../components/landingComponents/HolderInfos";
+import Hero from "../components/landingComponents/Hero";
 import Navbar from "../components/Navbar";
-import Cards from "../components/Cards";
+import Cards from "../components/landingComponents/Cards";
 import Footer from "../components/Footer";
 
 
