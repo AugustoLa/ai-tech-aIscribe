@@ -4,7 +4,7 @@ import Typed from 'react-typed'
 
 function Hero() {
     return (
-        <div className='text-white'>
+        <div className='text-white ease-in-out duration-500'>
             <div className='max-w-[800px] mx-auto text-center justify-center flex flex-col mt-[-96px] w-full h-screen'>
                 <p className='text-[#00df9a] font-bold p-2'>GROWING WITH AI-GPT ANALYTICS</p>
                 <h1 className='md:text7xl sm:text-6xl text-4xl font-bold md:py-6'>Grow Grow independently.</h1>
