@@ -57,7 +57,9 @@ function Layout() {
         },
     ];
     return (
-        <div className='flex'>
+        <div onClick={() => {
+            handleBar()
+        }} className={`flex`}>
             <div className="h-screen flex-1 p-7">
                 <Routes>
                     <Route exact path="" element={<AiFriend />} />
@@ -66,34 +68,35 @@ function Layout() {
                     <Route exact path="transform-text" element={<TransformText />} />
                 </Routes>
             </div>
-            <div className={`hidden md:block 'w-60' duration-500 h-screen bg-gray-400 border-l-gray-500 border  relative`}>
+            <div className={`hidden md:block w-60 duration-500 h-screen bg-gray-100 border border-l-gray-900 border-b-gray-900 relative`}>
                 <h1 className={`text-center text-2xl font-bold text-[#00df9a] m-4`}>Alscribe.</h1>
-                <ul className={`pt-6 flex flex-col items-end`}>
+                <ul className='pt-6'>
                     {Menus.map((menu, index) => (
                         <Link to={menu.to}>
-                            <li className={` text-white text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-gray-100/10 rounded-md ${menu.gap ? "mt-[60vh]" : "mt-2"}`} key={index}>
-                                <span className={`origin-left duration-200`}>
+                            <li className={` mx-2 gap-x-1 text-sm flex items-center p-2 hover:bg-blue-300/50 rounded-md 
+                            border border-gray-700/40 ${menu.gap ? "mt-[50vh]" : "mt-2"}`} key={index}>
+                                <p className='mr-auto text-blue-800 text-xl border-f p-2  bg-gray-900/10  rounded-md'>{menu.src}</p>
+                                <span className='ml-auto text-gray-500 font-semibold'>
                                     {menu.title}
                                 </span>
-                                <p>{menu.src}</p>
                             </li>
                         </Link>
                     ))}
                 </ul>
             </div>
-            <div onClick={handleBar} className='absolute m-4 md:hidden'>
+            <div onClick={handleBar} className='absolute m-2 md:hidden'>
                 {open ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
             </div>
-            <div className={`${open ? 'fixed right-0 top-0 w-[40%] bg-gray-400 h-full border border-l-gray-900 ease-in-out duration-500' : 'fixed left-[-100%]'} md:hidden`}>
-                <h1 className={`${!open && 'text-sm'} text-center text-2xl font-bold text-[#00df9a] m-4`}>Alscribe.</h1>
-                <ul className={`pt-6 flex flex-col items-end ${!open && 'items-center'}`}>
+            <div className={`${open ? 'fixed right-0 top-0 w-[40%] bg-gray-100 h-full border border-l-gray-900 ease-in-out duration-500' : 'fixed left-[-100%]'} md:hidden`}>
+                <h1 className={`text-center text-2xl font-bold text-[#00df9a] m-4`}>Alscribe.</h1>
+                <ul className='pt-6'>
                     {Menus.map((menu, index) => (
                         <Link to={menu.to}>
-                            <li className={` text-white text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-gray-100/10 rounded-md ${menu.gap ? "mt-[60vh]" : "mt-2"}`} key={index}>
-                                <span className={`${!open && "hidden"} origin-left duration-200`}>
+                            <li className={` mx-2 gap-x-1 text-sm flex items-center p-2 hover:bg-blue-300/50 rounded-md ${menu.gap ? "mt-[50vh]" : "mt-2"}`} key={index}>
+                                <p className='mr-auto text-blue-800 text-xl border-f p-2  bg-gray-900/10  rounded-md'>{menu.src}</p>
+                                <span className='ml-auto text-gray-500 font-semibold'>
                                     {menu.title}
                                 </span>
-                                <p>{menu.src}</p>
                             </li>
                         </Link>
                     ))}
