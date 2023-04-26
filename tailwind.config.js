@@ -4,6 +4,8 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
+      'xs': '50px',
+      
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -26,5 +28,6 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     }
   },
-  plugins: [],
+  plugins: [
+  ],
 }

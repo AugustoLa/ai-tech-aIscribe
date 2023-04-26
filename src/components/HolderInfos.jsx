@@ -22,7 +22,7 @@ function Card() {
         {holderInfos.map((infos, index) => {
           return (
             <div className='flex flex-col justify-center md:mr-4 text-end'>
-              <p key={index} className={`text-[#00df9a] uppercase font-bold ${index === 0 ? '' : ''}`}>{infos.info}</p>
+              <p key={index} className={`text-blue-400 uppercase font-bold ${index === 0 ? '' : ''}`}>{infos.info}</p>
               <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>
                 {infos.title}
               </h1>
