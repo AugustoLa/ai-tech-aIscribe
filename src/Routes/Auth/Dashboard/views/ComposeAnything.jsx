@@ -3,14 +3,14 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-import BlogComposer from '../../../../assets/img/blog-comp.svg'
-import Story from '../../../../assets/img/story.svg'
-import Blog from '../../../../assets/img/blog.svg'
-import Essay from '../../../../assets/img/document.svg'
-import Job from '../../../../assets/img/job.svg'
-import Instagram from '../../../../assets/img/instagram.svg'
-import ContentList from '../../../../assets/img/list.svg'
-import Twitter from '../../../../assets/img/twitter.svg'
+import BlogComposer from '../../../../assets/img/template-img/blog-comp.svg'
+import Story from '../../../../assets/img/template-img/story.svg'
+import Blog from '../../../../assets/img/template-img/blog.svg'
+import Essay from '../../../../assets/img/template-img/document.svg'
+import Job from '../../../../assets/img/template-img/job.svg'
+import Instagram from '../../../../assets/img/template-img/instagram.svg'
+import ContentList from '../../../../assets/img/template-img/list.svg'
+import Twitter from '../../../../assets/img/template-img/twitter.svg'
 
 
 
