@@ -3,14 +3,28 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-import BlogComposer from '../../../../assets/img/template-img/blog-comp.svg'
-import Story from '../../../../assets/img/template-img/story.svg'
-import Blog from '../../../../assets/img/template-img/blog.svg'
-import Essay from '../../../../assets/img/template-img/document.svg'
-import Job from '../../../../assets/img/template-img/job.svg'
-import Instagram from '../../../../assets/img/template-img/instagram.svg'
-import ContentList from '../../../../assets/img/template-img/list.svg'
-import Twitter from '../../../../assets/img/template-img/twitter.svg'
+
+// Compose Anything
+
+import BlogComposer from '../../../../../assets/img/template-img/blog-comp.svg'
+import Blog from '../../../../../assets/img/template-img/blog.svg'
+import ContentList from '../../../../../assets/img/template-img/list.svg'
+import Essay from '../../../../../assets/img/template-img/document.svg'
+import Job from '../../../../../assets/img/template-img/job.svg'
+import Instagram from '../../../../../assets/img/template-img/instagram.svg'
+import Story from '../../../../../assets/img/template-img/story.svg'
+import Twitter from '../../../../../assets/img/template-img/twitter.svg'
+
+// Better email
+
+import Email from '../../../../../assets/img/template-img/email.svg'
+import ColdEmail from '../../../../../assets/img/template-img/cold-email.svg'
+
+// Transform text
+
+import Translate from '../../../../../assets/img/template-img/language.svg'
+import Summarize from '../../../../../assets/img/template-img/summarize.svg'
+import Quote from '../../../../../assets/img/template-img/quote.svg'
 
 
 
@@ -19,7 +33,47 @@ function ComposeComp() {
     const navigate = useNavigate()
 
     const sections = [
+
+        // Transform text
+
         {
+            title: 'Translate',
+            description: "Translate anything including sentences, a 50 page document or an entire book. 25+ languages available",
+            img: Translate,
+            to: '/template/translate',
+        },
+        {
+            title: 'Rephrase',
+            description: 'Paraphrase, expand and compress existing text. Let us say it better for you',
+            img: Summarize,
+            to: '/template/rephrase',
+        },
+        {
+            title: 'Summarize',
+            description: 'Ideal for anyone with no time to read through that really long text. We will give you the 5-10 most important bullets of information from any article, essay, book or piece of content you want summarized',
+            img: Quote,
+            to: '/template/summarize',
+        },
+
+        // Better Email
+
+        {
+            title: 'Email Responder',
+            description: "Tell crear.ai what email you need to respond to and a rough idea of what you want to say. We’ll give you a professional response in seconds",
+            img: Email,
+            to: '/template/email-responder',
+          },
+          {
+            title: 'Cold Email',
+            description: 'Ideal for sales teams. Send cold emails faster without losing conversion. This template allows you to reach out to anyone from any company.',
+            img: ColdEmail,
+            to: '/template/cold-email',
+          },
+
+        // Compose Anything
+
+        {
+            
             title: 'Blog Composer',
             description: "Ideal for marketers and reporters. Create long form blogposts and articles for SEO, website blogs, media articles and more. Put your SEO on autopilot and pump out content faster than ever before",
             img: BlogComposer,
@@ -70,7 +124,7 @@ function ComposeComp() {
     ]
 
     return (
-        <div className='xl:mt-[13rem] flex flex-col items-center w-full text-center lg:mt-[5rem] md:mt-[1rem]'>
+        <div className='xl:mt-[2rem] flex flex-col items-center w-full text-center md:mt-[1rem]'>
             <h1 className='font-bold text-xl my-8'>Select a compose template</h1>
             <div className='p-4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1'>
                 {sections.map((infos) => {

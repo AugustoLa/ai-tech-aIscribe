@@ -21,6 +21,7 @@ import TransformText from './Routes/Auth/Dashboard/views/TransformText'
 
 // All templates pages
 
+import AllTemplates from './Routes/Auth/Dashboard/views/Templates/AllTemplates';
 import BlogCompose from './Routes/Auth/Dashboard/views/Templates/BlogCompose';
 import BlogSection from './Routes/Auth/Dashboard/views/Templates/BlogSection';
 import ColdEmail from './Routes/Auth/Dashboard/views/Templates/ColdEmail'
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
     element: <Layout></Layout>,
     children:
       [
+
         {
           path: 'aifriend',
           element: <AiFriend />
@@ -65,6 +67,10 @@ const router = createBrowserRouter([
         {
           path: 'transform-text',
           element: <TransformText />
+        },
+        {
+          path: 'template/all-templates',
+          element: <AllTemplates />
         },
         {
           path: 'template/blog-composer',

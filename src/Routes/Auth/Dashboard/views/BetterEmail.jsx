@@ -24,7 +24,7 @@ function ComposeComp() {
   ]
 
   return (
-    <div className='xl:mt-[13rem] flex flex-col justify-center items-center w-full text-center lg:mt-[5rem] md:mt-[1rem]'>
+    <div className='xl:mt-[13rem] flex flex-col items-center w-full text-center lg:mt-[5rem] md:mt-[1rem]'>
       <h1 className='font-bold text-xl my-8'>Select a compose template</h1>
       <div className='p-4 grid md:grid-cols-2 gap-y-4 sm:grid-cols-1'>
         {sections.map((infos) => {
