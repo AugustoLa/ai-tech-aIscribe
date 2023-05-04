@@ -8,6 +8,7 @@ import './index.css';
 
 import App from './Routes/App';
 import Login from './Routes/Login';
+import Register from './Routes/Register';
 import ErrorPage from './Routes/ErrorPage';
 
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: 'login',
     element: <Login></Login>
+  },
+  {
+    path: 'register',
+    element: <Register></Register>
   },
   {
     path: '/',
