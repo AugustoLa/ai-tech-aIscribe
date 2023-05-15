@@ -36,6 +36,7 @@ import Summarize from './Routes/Auth/Dashboard/views/Templates/Summarize'
 import InstagramCaption from './Routes/Auth/Dashboard/views/Templates/InstagramCaption';
 import Translate from './Routes/Auth/Dashboard/views/Templates/Translate'
 import Tweet from './Routes/Auth/Dashboard/views/Templates/Tweet';
+import Profile from './Routes/Auth/Profile';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
     path: 'register',
     element: <Register></Register>
   },
+  {
+    path: 'profile',
+    element: <Profile></Profile>
+  },
+
   {
     path: '/',
     element: <Layout></Layout>,
