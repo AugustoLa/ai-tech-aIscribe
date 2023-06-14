@@ -39,7 +39,6 @@ function Register() {
 
     return (
         <>
-            <Navbar></Navbar>
             <div className='relative w-full h-screen bg-zinc-900/90'>
                 <img
                     className='absolute w-full h-full object-cover mix-blend-overlay'
@@ -148,7 +147,6 @@ function Register() {
                     </form>
                 </section>
             </div>
-            <Footer></Footer>
         </>
     );
 }
