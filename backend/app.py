@@ -3,6 +3,7 @@ from flask_cors import CORS
 import os
 import openai
 from dotenv import load_dotenv, find_dotenv
+from openai import ChatCompletion
 
 # DOTENV
 load_dotenv(find_dotenv())
@@ -18,14 +19,16 @@ CORS(app)
 def gpt3():
     data = request.get_json()
     message = data["message"]
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=message,
-        max_tokens=3000,
-        temperature=0.9,
-    )
-    print(response.choices[0].text)
-    return jsonify({'message': response.choices[0].text})
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "system", "content": message}],
+    max_tokens=3000,
+    temperature=1.0,
+)
+    if response and 'choices' in response:
+        messages = response['choices'][0]['message']['content']
+        print(messages)
+        return jsonify({'message': messages})
 
 
 if __name__ == "__main__":

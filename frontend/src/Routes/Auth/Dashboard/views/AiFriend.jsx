@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
 import Friend from '../../../../assets/img/aifriend.png';
 
@@ -74,17 +74,18 @@ function AiFriend() {
 
 
             <div className='max-w-[1200px] w-full flex flex-row items-center justify-center'>
-                <a onClick={clearChat} className='m-2 bg-blue-800 rounded-lg cursor-pointer p-4'>Clear</a>
                 <input
                     className='xl:max-w-[1150px] lg:max-w-[800px] md:max-w-[500px] w-full mx-auto my-3 p-4 rounded-xl bg-gray-100 shadow-2xl'
                     value={inputMsg} onChange={(e) => setInputMsg(e.target.value)}
                     onKeyDown={onKeyDown}
                 />
+            </div>
+            <div className='flex'>
+                <a onClick={clearChat} className='m-2 bg-blue-800 rounded-lg cursor-pointer p-4'>Clear</a>
                 {
                     loading ? 'GPT Typing...' :
                         <a onClick={handleSubmit} className='m-2 bg-blue-800 rounded-lg cursor-pointer p-4'>Send</a>
                 }
-
             </div>
         </div>
     );
