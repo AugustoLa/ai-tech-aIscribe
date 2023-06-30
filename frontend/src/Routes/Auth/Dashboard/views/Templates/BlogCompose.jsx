@@ -17,31 +17,64 @@ function Tweet() {
     user: 'bot',
     message: ''
   }])
+  const [responses, setResponses] = useState({
+    title: '',
+    message1: '',
+    message2: '',
+    message3: '',
+    message4: '',
+  });
 
   const url = "http://localhost:9000/api"
-  //HandleSubmit
-  const handleSubmit = async () => {
-    setLoading(true)
-    let newMessage = [...compose, { user: 'me', message: `Rewrite the following word with all words in capital letters: ${title}` }];
-    setCompose(newMessage)
-    const message = newMessage.map((msg) => msg.message).join('\n')
+
+
+  const sendTextToAPI = async (text, state) => {
+    const message = [
+      ...compose,
+      { user: 'me', message: text }
+    ].map((msg) => msg.message).join('\n');
+
     try {
       const { data } = await axios.post(url, {
         message: message
-      })
-      setCompose([...newMessage, { user: 'bot', message: data.message }])
-      setLoading(false)
+      });
+
+      setResponses(prevResponses => ({
+        ...prevResponses,
+        [state]: data.message
+      }));
+      setLoading(false);
     } catch (error) {
-      console.log(error)
-      setLoading(false)
+      console.log(error);
+      setLoading(false);
     }
-  }
+  };
 
-  //clear chat 
+  const handleSubmit = async () => {
+    setResponses({
+      title: '',
+      message1: '',
+      message2: '',
+      message3: '',
+      message4: '',
+    });
+    setLoading(true);
+    // Send text to api using 'title' state
+    const titleMessage = `Rewrite the following word with all words in capital letters: ${title}`;
+    await sendTextToAPI(titleMessage, 'title');
 
-  const clearChat = () => {
-    setCompose([])
-  }
+    // Send text to api using 'message' state
+
+    const quantity = parseInt(sectionQuantity);
+
+    for (let i = 0; i < quantity; i++) {
+      const textMessage = `Generate a cohesive text with the following keyword: ${keywords}, ${title}. This text should be with a ${voiceTone} voice tone`;
+      await sendTextToAPI(textMessage, `message${i + 1}`);
+    }
+    setLoading(false);
+  };
+
+
 
   const navigate = useNavigate()
 
@@ -52,18 +85,21 @@ function Tweet() {
   return (
     <div className='flex md:flex-row xs:flex-col items-center w-full min-h-full px-6 py-6'>
       <div className='h-[32rem] lg:h-[50rem] md:h-[40rem] w-full lg:w-11/12 flex justify-center mt-6 md:mt-0'>
-        <div className='relative drop-shadow-lg px-8 py-8 bg-[#FFFFFF] border border-[59ACFF] rounded-lg w-11/12'>
-          <p className='text-[#48547d] h-[100%]'>
-            {compose.map((message, index) => {
-              if (message.user === 'bot') {
-                return (
-                  <div key={index} className=''>
-                    {message.message}
-                  </div>
-                );
-              }
-              return null;
-            })}
+        <div className='relative drop-shadow-lg px-8 py-8 bg-[#FFFFFF] border border-[59ACFF] rounded-lg w-11/12 overflow-y-auto text-end'>
+          <p className='text-[#48547d] m-2 text-center font-bold text-xl'>
+            {responses.title}
+          </p>
+          <p className='text-[#48547d] m-2 text-md'>
+            {responses.message1}
+          </p>
+          <p className='text-[#48547d] m-2 text-md'>
+            {responses.message2}
+          </p>
+          <p className='text-[#48547d] m-2 text-md'>
+            {responses.message3}
+          </p>
+          <p className='text-[#48547d] m-2 text-md'>
+            {responses.message4}
           </p>
         </div>
       </div>
@@ -122,7 +158,7 @@ function Tweet() {
             <div className='flex flex-col justify-between mb-2'>
               <div className='mb-2 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
                 <label className='flex items-center justify-between w-full h-full cursor-pointer'>
-                  <input type='radio' name='creativity' value='creative' className='cursor-pointer'></input>
+                  <input type='radio' name='creativity' value='creative' className='cursor-pointer' onChange={(e) => setCreativityLevel(e.target.value)}></input>
                   <div className='flex items-center'>
                     <span className='text-[#144b9e] mr-2'>Creative</span>
                     <span className='text-xl text-black'>
@@ -133,7 +169,7 @@ function Tweet() {
               </div>
               <div className='mb-2 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
                 <label className='flex items-center justify-between w-full h-full cursor-pointer'>
-                  <input type='radio' name='creativity' value='more-creative' className='cursor-pointer'></input>
+                  <input type='radio' name='creativity' value='more-creative' className='cursor-pointer' onChange={(e) => setCreativityLevel(e.target.value)}></input>
                   <div className='flex items-center'>
                     <span className='text-[#144b9e] mr-2'>More Creative</span>
                     <span className='text-xl text-black'>
@@ -144,7 +180,7 @@ function Tweet() {
               </div>
               <div className='mb-6 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
                 <label className='flex items-center justify-between w-full h-full cursor-pointer'>
-                  <input type='radio' name='creativity' value='most-creative' className='cursor-pointer'></input>
+                  <input type='radio' name='creativity' value='most-creative' className='cursor-pointer' onChange={(e) => setCreativityLevel(e.target.value)}></input>
                   <div className='flex items-center'>
                     <span className='text-[#144b9e] mr-2'>Most Creative</span>
                     <span className='text-xl text-black'>
@@ -158,7 +194,7 @@ function Tweet() {
             <div className='flex flex-col justify-between mb-2'>
               <div className='mb-2 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
                 <label className='flex items-center justify-between w-full h-full cursor-pointer'>
-                  <input type='radio' name='sections' value='one' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
+                  <input type='radio' name='sections' value='1' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
                   <div className='flex items-center'>
                     <span className='text-[#144b9e] mr-2'>1</span>
                   </div>
@@ -166,7 +202,7 @@ function Tweet() {
               </div>
               <div className='mb-2 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
                 <label className='flex items-center justify-between w-full h-full cursor-pointer'>
-                  <input type='radio' name='sections' value='two' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
+                  <input type='radio' name='sections' value='2' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
                   <div className='flex items-center'>
                     <span className='text-[#144b9e] mr-2'>2</span>
                   </div>
@@ -174,7 +210,7 @@ function Tweet() {
               </div>
               <div className='mb-2 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
                 <label className='flex items-center justify-between w-full h-full cursor-pointer'>
-                  <input type='radio' name='sections' value='three' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
+                  <input type='radio' name='sections' value='3' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
                   <div className='flex items-center'>
                     <span className='text-[#144b9e] mr-2'>3</span>
                   </div>
@@ -182,7 +218,7 @@ function Tweet() {
               </div>
               <div className='mb-2 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
                 <label className='flex items-center justify-between w-full h-full cursor-pointer'>
-                  <input type='radio' name='sections' value='four' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
+                  <input type='radio' name='sections' value='4' className='cursor-pointer' onChange={(e) => setSectionQuantity(e.target.value)}></input>
                   <div className='flex items-center'>
                     <span className='text-[#144b9e] mr-2'>4</span>
                   </div>
