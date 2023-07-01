@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { BiHappyHeartEyes, BiHappy, BiHappyBeaming, BiLaugh, BiWinkTongue, BiWinkSmile } from "react-icons/bi";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
-function Tweet() {
+function Essay() {
 
     //States
     const [title, setTitle] = useState('');
@@ -238,4 +238,4 @@ function Tweet() {
     )
 }
 
-export default Tweet
+export default Essay

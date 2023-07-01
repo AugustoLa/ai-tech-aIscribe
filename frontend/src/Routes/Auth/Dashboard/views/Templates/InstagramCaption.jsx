@@ -5,7 +5,7 @@ import axios from 'axios'
 import { BiHappyHeartEyes, BiHappy, BiHappyBeaming, BiLaugh, BiWinkTongue, BiWinkSmile } from "react-icons/bi";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
-function Tweet() {
+function InstagramCaption() {
 
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false)
@@ -66,7 +66,7 @@ function Tweet() {
   return (
     <div className='flex md:flex-row xs:flex-col items-center w-full min-h-full px-6 py-6'>
       <div className='h-[32rem] lg:h-[50rem] md:h-[40rem] w-full lg:w-11/12 flex justify-center mt-6 md:mt-0'>
-        <div className='relative drop-shadow-lg px-8 py-8 bg-[#FFFFFF] border border-[59ACFF] rounded-lg w-11/12'>
+        <div className='relative drop-shadow-lg px-8 py-8 bg-[#FFFFFF] border border-[59ACFF] rounded-lg w-11/12 overflow-y-auto'>
           <p className='text-[#48547d] h-[100%]'>
             <p className='text-[#48547d] m-2 text-center font-bold text-xl'>
               {responses.post}
@@ -175,4 +175,4 @@ function Tweet() {
   )
 }
 
-export default Tweet
+export default InstagramCaption
