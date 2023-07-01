@@ -53,7 +53,6 @@ function Tweet() {
         });
         setLoading(true);
 
-        // Send text to api using 'message' state
         const textMessage = `Giving the following text: ${message}. Generate a ${voiceTone} tweet with these following keyword: ${keywords}`;
         await sendTextToAPI(textMessage, `post`);
         setLoading(false);

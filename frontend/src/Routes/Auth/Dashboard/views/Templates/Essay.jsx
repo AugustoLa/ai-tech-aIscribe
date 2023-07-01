@@ -59,12 +59,9 @@ function Tweet() {
             message3: '',
             message4: '',
         });
-        setLoading(true);
-        // Send text to api using 'title' state
+
         const titleMessage = `Rewrite the following word with all words in capital letters: ${title}`;
         await sendTextToAPI(titleMessage, 'title');
-
-        // Send text to api using 'message' state
 
         const quantity = parseInt(sectionQuantity);
 

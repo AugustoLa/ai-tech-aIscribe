@@ -51,7 +51,6 @@ function Tweet() {
     });
     setLoading(true);
 
-    // Send text to api using 'message' state
     const textMessage = `Giving the following text: ${message}. Rewrite and generate a short ${voiceTone} instagram caption with these following keyword: ${keywords}`;
     await sendTextToAPI(textMessage, `post`);
     setLoading(false);
