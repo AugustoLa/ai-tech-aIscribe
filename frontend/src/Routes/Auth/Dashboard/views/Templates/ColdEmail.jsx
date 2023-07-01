@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 import { BiHappy, BiWinkTongue, BiWinkSmile } from "react-icons/bi";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 function ColdEmail() {
   const [email, setEmail] = useState('');
@@ -126,8 +126,21 @@ function ColdEmail() {
               </div>
             </div>
             <div className='w-full'>
-              <button className='flex items-center justify-center bg-[#59acff] w-full h-10 rounded-md'>
-                <span className='text-white' onClick={handleSubmit}>Generate</span>
+              <button
+                className={`flex items-center justify-center bg-blue-500 w-full h-10 rounded-md ${!email || !voiceTone || !to ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={handleSubmit}
+                disabled={!email || !voiceTone || !to}
+              >
+                {loading ? (
+                  <>
+                    <AiOutlineLoading3Quarters className="animate-spin mx-2"></AiOutlineLoading3Quarters>
+                    <span className="text-white">Loading...</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-white">Generate</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

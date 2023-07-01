@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 
 
@@ -67,7 +67,7 @@ function Translate() {
       <div className='h-[32rem] lg:h-[50rem] md:h-[40rem] w-full lg:w-11/12 flex justify-center mt-6 md:mt-0'>
         <div className='relative drop-shadow-lg px-8 py-8 bg-[#FFFFFF] border border-[59ACFF] rounded-lg w-11/12 text-end overflow-y-auto'>
           <p className='text-[#48547d] h-[100%]'>
-            {responses.message.split('\n').map((line, index) => (
+            {responses.translate.split('\n').map((line, index) => (
               <p key={index} className='text-[#48547d] mb-1'>
                 {line}
               </p>
@@ -91,8 +91,21 @@ function Translate() {
             <input className='text-sm pl-2 mb-6 border border-[#b8c7e5] bg-white rounded-lg h-12 w-full px-2'
               type='text' placeholder='ex: Spanish' value={language} onChange={(e) => setLanguage(e.target.value)} />
             <div className='w-full'>
-              <button className='flex items-center justify-center bg-[#59acff] w-full h-10 rounded-md' onClick={handleSubmit}>
-                <span className='text-white'>Generate</span>
+              <button
+                className={`flex items-center justify-center bg-blue-500 w-full h-10 rounded-md ${!message || !language ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={handleSubmit}
+                disabled={!message || !language}
+              >
+                {loading ? (
+                  <>
+                    <AiOutlineLoading3Quarters className="animate-spin mx-2"></AiOutlineLoading3Quarters>
+                    <span className="text-white">Loading...</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-white">Generate</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

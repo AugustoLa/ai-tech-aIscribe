@@ -3,17 +3,15 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 import { BiHappyHeartEyes, BiHappy, BiHappyBeaming, BiLaugh, BiWinkTongue, BiWinkSmile } from "react-icons/bi";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 function Essay() {
-
-    //States
     const [title, setTitle] = useState('');
     const [loading, setLoading] = useState(false)
-    const [voiceTone, setVoiceTone] = useState('informal');
+    const [voiceTone, setVoiceTone] = useState('');
     const [keywords, setKeywords] = useState('');
-    const [sectionQuantity, setSectionQuantity] = useState('one');
-    const [creativityLevel, setCreativityLevel] = useState('creative');
+    const [sectionQuantity, setSectionQuantity] = useState('');
+    const [creativityLevel, setCreativityLevel] = useState('');
     const [compose, setCompose] = useState([{
         user: 'bot',
         message: ''
@@ -151,7 +149,7 @@ function Essay() {
                         </div>
                         <label className='text-sm text-[#1d2340] pb-2 font-bold'>Keywords</label>
                         <input className='text-sm pl-2 mb-6 border border-[#b8c7e5] bg-white rounded-lg h-12 w-full px-2'
-                            type='text' placeholder='ex: AI, education, tech, future, research'></input>
+                            type='text' placeholder='ex: AI, education, tech, future, research' value={keywords} onChange={(e) => setKeywords(e.target.value)}></input>
                         <label className='text-sm text-[#1d2340] pb-2 font-bold'>Creativity Level</label>
                         <div className='flex flex-col justify-between mb-2'>
                             <div className='mb-2 border bg-white border-[#E6EDFA] w-full rounded-lg h-10 px-2 flex flex-row justify-between items-center'>
@@ -225,8 +223,21 @@ function Essay() {
                         </div>
 
                         <div className='w-full'>
-                            <button className='flex items-center justify-center bg-[#59acff] w-full h-10 rounded-md' onClick={handleSubmit}>
-                                <span className='text-white'>Generate</span>
+                            <button
+                                className={`flex items-center justify-center bg-blue-500 w-full h-10 rounded-md ${!title || !voiceTone || !keywords || !creativityLevel || !sectionQuantity ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                onClick={handleSubmit}
+                                disabled={!title || !voiceTone || !keywords || !creativityLevel || !sectionQuantity}
+                            >
+                                {loading ? (
+                                    <>
+                                        <AiOutlineLoading3Quarters className="animate-spin mx-2"></AiOutlineLoading3Quarters>
+                                        <span className="text-white">Loading...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className="text-white">Generate</span>
+                                    </>
+                                )}
                             </button>
                         </div>
                     </div>

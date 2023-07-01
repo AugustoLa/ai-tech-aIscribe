@@ -3,16 +3,15 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 import { BiHappyHeartEyes, BiHappy, BiHappyBeaming, BiLaugh, BiWinkTongue, BiWinkSmile } from "react-icons/bi";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 function Tweet() {
     //States
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false)
-    const [voiceTone, setVoiceTone] = useState('informal');
+    const [voiceTone, setVoiceTone] = useState('');
     const [keywords, setKeywords] = useState('');
-    const [sectionQuantity, setSectionQuantity] = useState('one');
-    const [creativityLevel, setCreativityLevel] = useState('creative');
+    const [creativityLevel, setCreativityLevel] = useState('');
     const [compose, setCompose] = useState([{
         user: 'bot',
         message: ''
@@ -164,8 +163,21 @@ function Tweet() {
                             </div>
                         </div>
                         <div className='w-full'>
-                            <button className='flex items-center justify-center bg-[#59acff] w-full h-10 rounded-md'>
-                                <span className='text-white' onClick={handleSubmit}>Generate</span>
+                            <button
+                                className={`flex items-center justify-center bg-blue-500 w-full h-10 rounded-md ${!voiceTone || !message || !creativityLevel || !keywords ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                onClick={handleSubmit}
+                                disabled={!voiceTone || !message || !creativityLevel || !keywords}
+                            >
+                                {loading ? (
+                                    <>
+                                        <AiOutlineLoading3Quarters className="animate-spin mx-2"></AiOutlineLoading3Quarters>
+                                        <span className="text-white">Loading...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className="text-white">Generate</span>
+                                    </>
+                                )}
                             </button>
                         </div>
                     </div>

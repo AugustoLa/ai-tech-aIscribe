@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 function Summarize() {
   const [message, setMessage] = useState('');
@@ -82,8 +82,21 @@ function Summarize() {
             <textarea className='py-2 md:h-[25rem] sm:h-[15rem] text-sm pl-2 mb-6 border border-[#b8c7e5] bg-white rounded-lg w-full px-2'
               placeholder='ex: space/tech/finances' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
             <div className='w-full'>
-              <button className='flex items-center justify-center bg-[#59acff] w-full h-10 rounded-md' onClick={handleSubmit}>
-                <span className='text-white'>Generate</span>
+              <button
+                className={`flex items-center justify-center bg-blue-500 w-full h-10 rounded-md ${!message ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={handleSubmit}
+                disabled={!message}
+              >
+                {loading ? (
+                  <>
+                    <AiOutlineLoading3Quarters className="animate-spin mx-2"></AiOutlineLoading3Quarters>
+                    <span className="text-white">Loading...</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-white">Generate</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

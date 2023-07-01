@@ -6,7 +6,6 @@ import { BiHappyHeartEyes, BiHappy, BiHappyBeaming, BiLaugh, BiWinkTongue, BiWin
 import { AiOutlineArrowLeft, AiOutlineLoading3Quarters } from "react-icons/ai";
 
 function Tweet() {
-  //States
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false)
   const [voiceTone, setVoiceTone] = useState('');

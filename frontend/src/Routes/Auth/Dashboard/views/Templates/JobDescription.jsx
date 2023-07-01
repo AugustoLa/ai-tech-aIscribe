@@ -47,17 +47,15 @@ function JobDescription() {
   };
 
   const handleSubmit = async () => {
-    if (name && position && require && detail) {
-      setLoading(true);
-      setResponses({
-        message: '',
-      });
+    setLoading(true);
+    setResponses({
+      message: '',
+    });
 
-      const jobDesc = `You are making a job description. The job description should have the company name '${name}', 
-      position title '${position}', requirements '${require}' and some offer details ${detail} `;
-      await sendTextToAPI(jobDesc, 'message');
-      setLoading(false);
-    }
+    const jobDesc = `You are making a job description. The job description should have the company name '${name}', 
+    position title '${position}', requirements '${require}' and some offer details ${detail} `;
+    await sendTextToAPI(jobDesc, 'message');
+    setLoading(false);
   };
 
   const navigate = useNavigate();
@@ -69,7 +67,7 @@ function JobDescription() {
   return (
     <div className="flex md:flex-row xs:flex-col items-center w-full min-h-full px-6 py-6">
       <div className="h-[32rem] lg:h-[50rem] md:h-[40rem] w-full lg:w-11/12 flex justify-center mt-6 md:mt-0">
-        <div className="relative drop-shadow-lg px-8 py-8 bg-white border border-blue-500 rounded-lg w-11/12 text-end overflow-y-auto">
+        <div className="relative drop-shadow-lg px-8 py-8 bg-white rounded-lg w-11/12 text-end overflow-y-auto">
           {responses.message.split('\n').map((line, index) => (
             <p key={index} className="text-blue-900 mb-1">
               {line}
