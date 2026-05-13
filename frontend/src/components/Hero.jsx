@@ -10,7 +10,7 @@ function Hero() {
           GROWING WITH AI-GPT ANALYTICS
         </p>
         <h1 className="md:text7xl sm:text-6xl text-4xl font-bold md:py-6">
-          Grow Grow independently.
+          Grow independently.
         </h1>
         <div className="flex justify-center items-center">
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
