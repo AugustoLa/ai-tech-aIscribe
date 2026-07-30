@@ -1,1 +1,4 @@
 Este projeto consiste em uma plataforma de inteligência artificial desenvolvida do zero com React, JavaScript e Tailwind CSS, projetada especificamente para atender às necessidades do público árabe, COMPELTAMENTE RESPONSIVA! O diferencial central reside na implementação nativa de layouts RTL (Right-to-Left), garantindo que a interface e a tipografia respeitem a direção de leitura e os padrões culturais da região. Através da integração com API de modelos de linguagem (out dated), a aplicação oferece uma experiência de conversação fluida, responsiva e totalmente adaptada, unindo tecnologia de ponta em IA com um design inclusivo e acessível para falantes de árabe.
+
+
+** Para passar da parte de verificação de conta é só colocar qualquer coisa para validar a quantidade de caracter e depois clicar em login. 
