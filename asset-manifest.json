@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.b71b0fd5.css",
-    "main.js": "/static/js/main.33259882.js",
-    "static/media/bg-login-image.jpg": "/static/media/bg-login-image.7a8721490d66f1021999.jpg",
-    "static/media/aifriend.png": "/static/media/aifriend.f699fad2a2ea42cb17dc.png",
-    "static/media/instagram.svg": "/static/media/instagram.f235299ea14af76ba28cd2286a58877c.svg",
-    "static/media/language.svg": "/static/media/language.c375b016368b1f11645e6ecc1c7cf8cf.svg",
-    "static/media/blog.svg": "/static/media/blog.2ff4641680082f40cf73aae31c96612c.svg",
-    "static/media/twitter.svg": "/static/media/twitter.cb75ff81d2afc449ef6ae19007e1488d.svg",
-    "static/media/list.svg": "/static/media/list.f2ebf95085be510b0615597b31c484a0.svg",
-    "static/media/cold-email.svg": "/static/media/cold-email.d1b6d2359c7576eb43a3cc6b0a5e7e31.svg",
-    "static/media/quote.svg": "/static/media/quote.2ace55876b22aa83b253227901d6d491.svg",
-    "static/media/story.svg": "/static/media/story.cb670d2366749eb663c6bb5e63fcfacd.svg",
-    "static/media/document.svg": "/static/media/document.df80f6f7b5fd52da759029e5cc50949c.svg",
-    "index.html": "/index.html",
-    "static/media/blog-comp.svg": "/static/media/blog-comp.9e5230d50083258aea26504063b8b04e.svg",
-    "static/media/job.svg": "/static/media/job.ba678d1fa24d885be4663261cfeaa09b.svg",
-    "static/media/email.svg": "/static/media/email.eeb8447ef250430e70cc81844ef02bab.svg",
-    "static/media/summarize.svg": "/static/media/summarize.738636483c697f6fc09ac1849ad9fbab.svg",
-    "main.b71b0fd5.css.map": "/static/css/main.b71b0fd5.css.map",
-    "main.33259882.js.map": "/static/js/main.33259882.js.map"
+    "main.css": "/ai-tech-aIscribe/static/css/main.b71b0fd5.css",
+    "main.js": "/ai-tech-aIscribe/static/js/main.b0fe5865.js",
+    "static/media/bg-login-image.jpg": "/ai-tech-aIscribe/static/media/bg-login-image.7a8721490d66f1021999.jpg",
+    "static/media/aifriend.png": "/ai-tech-aIscribe/static/media/aifriend.f699fad2a2ea42cb17dc.png",
+    "static/media/instagram.svg": "/ai-tech-aIscribe/static/media/instagram.f235299ea14af76ba28cd2286a58877c.svg",
+    "static/media/language.svg": "/ai-tech-aIscribe/static/media/language.c375b016368b1f11645e6ecc1c7cf8cf.svg",
+    "static/media/blog.svg": "/ai-tech-aIscribe/static/media/blog.2ff4641680082f40cf73aae31c96612c.svg",
+    "static/media/twitter.svg": "/ai-tech-aIscribe/static/media/twitter.cb75ff81d2afc449ef6ae19007e1488d.svg",
+    "static/media/list.svg": "/ai-tech-aIscribe/static/media/list.f2ebf95085be510b0615597b31c484a0.svg",
+    "index.html": "/ai-tech-aIscribe/index.html",
+    "static/media/cold-email.svg": "/ai-tech-aIscribe/static/media/cold-email.d1b6d2359c7576eb43a3cc6b0a5e7e31.svg",
+    "static/media/quote.svg": "/ai-tech-aIscribe/static/media/quote.2ace55876b22aa83b253227901d6d491.svg",
+    "static/media/story.svg": "/ai-tech-aIscribe/static/media/story.cb670d2366749eb663c6bb5e63fcfacd.svg",
+    "static/media/document.svg": "/ai-tech-aIscribe/static/media/document.df80f6f7b5fd52da759029e5cc50949c.svg",
+    "static/media/blog-comp.svg": "/ai-tech-aIscribe/static/media/blog-comp.9e5230d50083258aea26504063b8b04e.svg",
+    "static/media/job.svg": "/ai-tech-aIscribe/static/media/job.ba678d1fa24d885be4663261cfeaa09b.svg",
+    "static/media/email.svg": "/ai-tech-aIscribe/static/media/email.eeb8447ef250430e70cc81844ef02bab.svg",
+    "static/media/summarize.svg": "/ai-tech-aIscribe/static/media/summarize.738636483c697f6fc09ac1849ad9fbab.svg",
+    "main.b71b0fd5.css.map": "/ai-tech-aIscribe/static/css/main.b71b0fd5.css.map",
+    "main.b0fe5865.js.map": "/ai-tech-aIscribe/static/js/main.b0fe5865.js.map"
   },
   "entrypoints": [
     "static/css/main.b71b0fd5.css",
-    "static/js/main.33259882.js"
+    "static/js/main.b0fe5865.js"
   ]
 }
